@@ -1,0 +1,25 @@
+package cn.xpq.test
+import cn.xpq.test.model.Message
+
+rule helloWorld
+    dialect "mvel"
+    when
+        $message: Message(status.equals(Message.HELLO), message:message)
+    then
+        System.out.println($message);
+        $message.setStatus(2);
+        update($message)
+end
+
+
+rule goodBye
+    dialect "java"
+    when
+        $message: Message(status.equals(Message.GOODBYE))
+    then
+        System.out.println($message);
+        $message.setMessage("heiheihei");
+        $message.setStatus(5);
+        update($message)
+
+end
