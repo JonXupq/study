@@ -1,0 +1,15 @@
+server:
+  port: 8090
+
+spring:
+  datasource:
+    driver-class-name: org.h2.Driver
+    username: root
+    password: 123456
+    url: jdbc:h2:mem:db_users;MODE=MYSQL;INIT=RUNSCRIPT FROM './src/test/resources/init_table.sql'
+    tomcat:
+      max-active: 10
+      max-idle: 10
+      min-idle: 5
+      initial-size: 5
+
