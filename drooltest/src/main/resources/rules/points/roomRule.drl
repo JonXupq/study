@@ -1,0 +1,11 @@
+package cn.xpq.test
+import cn.xpq.test.model.ConsumeHistory
+
+rule roomPointsRule
+    when
+        $consumeHistory:ConsumeHistory(consumeTypeCode.equals("R"))
+
+    then
+
+
+end
